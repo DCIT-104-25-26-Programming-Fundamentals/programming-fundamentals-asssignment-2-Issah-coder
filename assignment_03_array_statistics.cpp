@@ -40,5 +40,73 @@
 // =============================================================================
 
 #include <iostream>
+#include <vector>
 using namespace std;
+#include <vector>
+
+int the_sum(vector<int> numbers)
+{
+    int sum = 0;
+    for (int number : numbers)
+    {
+        sum += number;
+    }
+    return sum;
+}
+
+double the_average(vector<int> numbers, int n)
+{
+    return (double)the_sum(numbers) / n;
+}
+
+int the_maximum(vector<int> numbers)
+{
+    int maximum = numbers[0];
+    for (int num : numbers)
+    {
+        if (num > maximum)
+        {
+            maximum = num;
+        }
+    }
+    return maximum;
+}
+
+int the_minimum(vector<int> numbers)
+{
+    int minimum = numbers[0];
+    for (int number : numbers)
+    {
+        if (number < minimum)
+        {
+            minimum = number;
+        }
+    }
+    return minimum;
+}
+
+int main()
+{
+    int n;
+    cout << "How many numbers? ";
+    cin >> n;
+
+    vector<int> numbers;
+
+    for (int i = 1; i <= n; i++)
+    {
+        int number;
+        cout << "Enter number " << i << ": ";
+        cin >> number;
+        numbers.push_back(number);
+    }
+
+    cout << "Results:" << endl;
+    cout << "Sum: " << the_sum(numbers) << endl;
+    cout << "Average: " << the_average(numbers, n) << endl;
+    cout << "Maximum: " << the_maximum(numbers) << endl;
+    cout << "Minimum: " << the_minimum(numbers) << endl;
+
+    return 0;
+}
 
