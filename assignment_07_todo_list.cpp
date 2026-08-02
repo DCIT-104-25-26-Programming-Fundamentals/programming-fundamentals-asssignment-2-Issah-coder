@@ -80,3 +80,80 @@
 #include <string>
 using namespace std;
 
+void add(vector<string> &todo)
+{
+    string task;
+
+    cout << "Enter Task: ";
+    cin.ignore();
+    getline(cin, task);
+
+    todo.push_back(task);
+
+    cout << "Task added: " << task << endl;
+}
+
+void remove(vector<string> &todo)
+{
+    int del;
+
+    cout << "Enter task number to delete: ";
+    cin >> del;
+
+    string deleted_item = todo[del - 1];
+    todo.erase(todo.begin() + (del - 1));
+
+    cout << "Task '" << deleted_item << "' has been removed." << endl;
+}
+
+void view(vector<string> &todo)
+{
+    for (int i = 0; i < todo.size(); i++)
+    {
+        cout << i + 1 << ". " << todo[i] << endl;
+    }
+}
+
+int main()
+{
+    vector<string> todo;
+    int choice;
+
+    while (true)
+    {
+        cout << "\n============================" << endl;
+        cout << "      TO-DO LIST MENU" << endl;
+        cout << "============================" << endl;
+        cout << "1. Add task" << endl;
+        cout << "2. View tasks" << endl;
+        cout << "3. Delete task" << endl;
+        cout << "4. Quit" << endl;
+
+        cout << "Enter your choice (1-4): ";
+        cin >> choice;
+
+        if (choice == 1)
+        {
+            add(todo);
+        }
+        else if (choice == 2)
+        {
+            view(todo);
+        }
+        else if (choice == 3)
+        {
+            remove(todo);
+        }
+        else if (choice == 4)
+        {
+            break;
+        }
+        else
+        {
+            cout << "Invalid Input" << endl;
+        }
+    }
+
+    return 0;
+}
+
