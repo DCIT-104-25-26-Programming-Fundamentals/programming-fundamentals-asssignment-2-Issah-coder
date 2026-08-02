@@ -57,3 +57,69 @@
 #include <iostream>
 using namespace std;
 
+
+void generate_single_table(int n)
+{
+    if (n < 0)
+    {
+        return;
+    }
+
+    for (int i = 0; i < 12; i++)
+    {
+        cout << n << " x " << i + 1 << " = " << n * (i + 1) << endl;
+    }
+}
+
+void generate_multiple_tables(int n)
+{
+    if (n < 0)
+    {
+        return;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < 12; j++)
+        {
+            cout << i + 1 << " x " << j + 1 << " = " << (i + 1) * (j + 1) << endl;
+        }
+
+        cout << "-------------------------------" << endl;
+    }
+}
+
+int main()
+{
+    int number;
+
+    cout << "Enter Number: ";
+    cin >> number;
+
+    if (number > 0)
+    {
+        generate_single_table(number);
+    }
+    else
+    {
+        cout << "Invalid Input" << endl;
+        return 0;
+    }
+
+    int number2;
+
+    cout << "Enter Number For Multiple Tables: ";
+    cin >> number2;
+
+    if (number2 > 0)
+    {
+        generate_multiple_tables(number2);
+    }
+    else
+    {
+        cout << "Invalid Input" << endl;
+        return 0;
+    }
+
+    return 0;
+}
