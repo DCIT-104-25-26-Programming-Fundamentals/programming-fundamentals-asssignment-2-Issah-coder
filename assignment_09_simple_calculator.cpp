@@ -73,3 +73,112 @@
 #include <cmath>
 using namespace std;
 
+int addition(int number1, int number2)
+{
+    return number1 + number2;
+}
+
+int subtraction(int number1, int number2)
+{
+    return number1 - number2;
+}
+
+int multiplication(int num1, int num2)
+{
+    return num1 * num2;
+}
+
+double division(int num1, int num2)
+{
+    if (num2 == 0)
+    {
+        cout << "Second Number cannot be zero" << endl;
+        return 0;
+    }
+
+    return (double)num1 / num2;
+}
+
+int modulus(int num1, int num2)
+{
+    if (num2 == 0)
+    {
+        cout << "Second Number cannot be zero" << endl;
+        return 0;
+    }
+
+    return num1 % num2;
+}
+
+double expo(int num1, int num2)
+{
+    return pow(num1, num2);
+}
+
+int main()
+{
+    while (true)
+    {
+        cout << "\n============================" << endl;
+        cout << "     SIMPLE CALCULATOR" << endl;
+        cout << "============================" << endl;
+        cout << "1. Addition" << endl;
+        cout << "2. Subtraction" << endl;
+        cout << "3. Multiplication" << endl;
+        cout << "4. Division" << endl;
+        cout << "5. Modulus" << endl;
+        cout << "6. Exponentiation" << endl;
+        cout << "7. Quit" << endl;
+
+        int choice;
+        cout << "Select an operation (1-7): ";
+        cin >> choice;
+
+        if (choice == 7)
+        {
+            cout << "Goodbye!" << endl;
+            break;
+        }
+
+        if (choice < 1 || choice > 7)
+        {
+            cout << "Out of range. Must be between 1 - 7" << endl;
+            continue;
+        }
+
+        int number1, number2;
+        cout << "Enter first number: ";
+        cin >> number1;
+
+        cout << "Enter second number: ";
+        cin >> number2;
+
+        if (choice == 1)
+        {
+            cout << addition(number1, number2) << endl;
+        }
+        else if (choice == 2)
+        {
+            cout << subtraction(number1, number2) << endl;
+        }
+        else if (choice == 3)
+        {
+            cout << multiplication(number1, number2) << endl;
+        }
+        else if (choice == 4)
+        {
+            cout << division(number1, number2) << endl;
+        }
+        else if (choice == 5)
+        {
+            cout << modulus(number1, number2) << endl;
+        }
+        else if (choice == 6)
+        {
+            cout << expo(number1, number2) << endl;
+        }
+    }
+
+    return 0;
+}
+
